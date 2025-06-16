@@ -1,19 +1,26 @@
+"use client"; // Framer Motionを使うコンポーネントにも必要です
+
+import { motion } from 'framer-motion'; // ← motionをインポート
 import styles from './AboutMe.module.css';
 
 const AboutMe = () => {
   const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Git"];
 
   return (
-    <section className={styles.section}>
+    // <section> を <motion.section> に変更し、アニメーションの指示を追加
+    <motion.section 
+      className={styles.section}
+      initial={{ opacity: 0, y: 50 }} // 初期状態：透明で、少し下にある
+      whileInView={{ opacity: 1, y: 0 }} // 画面内に入ったら：不透明になり、元の位置に戻る
+      viewport={{ once: true, amount: 0.3 }} // アニメーションを1回だけ再生、要素が30%見えたら開始
+      transition={{ duration: 0.8, ease: "easeOut" }} // 0.8秒かけてアニメーション
+    >
       <div className={styles.container}>
-        {/* 左側：プロフィール画像エリア */}
         <div className={styles.imageWrapper}>
           <div className={styles.imagePlaceholder}>
-            {/* 今は画像がないので、枠だけ表示します。後でここにNext.jsのImageコンポーネントを入れます */}
           </div>
         </div>
 
-        {/* 右側：テキストエリア */}
         <div className={styles.textWrapper}>
           <h2 className={styles.heading}>About Me</h2>
           <p className={styles.bio}>
@@ -31,7 +38,7 @@ const AboutMe = () => {
           </ul>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
