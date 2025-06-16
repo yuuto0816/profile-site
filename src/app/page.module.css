@@ -1,0 +1,68 @@
+/* アニメーションの定義 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ヒーローセクション全体のスタイル */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 128px); /* ヘッダー・フッターの高さを考慮 */
+  text-align: center;
+  padding: 1rem;
+}
+
+/* 各要素のスタイルとアニメーションの適用 */
+.title {
+  font-size: 3rem; /* 48px */
+  font-weight: 800; /* extra-bold */
+  color: white;
+  animation: slideInFromTop 1s ease-out, fadeIn 1s ease-out;
+}
+
+.name {
+  margin-top: 1rem;
+  font-size: 1.875rem; /* 30px */
+  color: #d1d5db; /* gray-300 */
+  animation: slideInFromTop 1s ease-out 0.2s, fadeIn 1s ease-out 0.2s;
+  animation-fill-mode: backwards; /* アニメーション開始前は非表示 */
+}
+
+.description {
+  margin-top: 1.5rem;
+  max-width: 42rem; /* 672px */
+  font-size: 1.125rem; /* 18px */
+  color: #9ca3af; /* gray-400 */
+  animation: fadeIn 1s ease-out 0.4s;
+  animation-fill-mode: backwards;
+}
+
+.iconLink {
+  margin-top: 2rem;
+  color: #9ca3af; /* gray-400 */
+  animation: fadeIn 1s ease-out 0.6s;
+  animation-fill-mode: backwards;
+}
+
+.iconLink:hover {
+  color: white;
+  transition: color 0.3s;
+}
