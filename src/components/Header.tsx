@@ -16,15 +16,18 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link href="/">My Portfolio</Link>
+          {/* ↓↓↓ Homeへのリンクもアンカーリンクに変更 ↓↓↓ */}
+          <Link href="/#home">My Portfolio</Link>
         </div>
 
         {/* PC用ナビゲーション */}
         <nav className={`${styles.nav} ${styles.pcNav}`}>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/works">Works</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            {/* ↓↓↓ ここのリンクをすべて変更します ↓↓↓ */}
+            <li><Link href="/#home">Home</Link></li>
+            <li><Link href="/#about">About</Link></li>
+            <li><Link href="/#works">Works</Link></li>
+            <li><Link href="/#contact">Contact</Link></li>
           </ul>
         </nav>
 
@@ -44,9 +47,11 @@ const Header = () => {
       <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''}`}>
         <nav>
           <ul>
-            <li><Link href="/" onClick={toggleMenu}>Home</Link></li>
-            <li><Link href="/works" onClick={toggleMenu}>Works</Link></li>
-            <li><Link href="/contact" onClick={toggleMenu}>Contact</Link></li>
+            {/* ↓↓↓ ここのリンクもすべて変更します ↓↓↓ */}
+            <li><Link href="/#home" onClick={toggleMenu}>Home</Link></li>
+            <li><Link href="/#about" onClick={toggleMenu}>About</Link></li>
+            <li><Link href="/#works" onClick={toggleMenu}>Works</Link></li>
+            <li><Link href="/#contact" onClick={toggleMenu}>Contact</Link></li>
           </ul>
         </nav>
       </div>
