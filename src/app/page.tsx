@@ -7,7 +7,9 @@ import Works from '@/components/Works';
 const HomePage = () => {
   return (
     <> {/*複数の要素を並べるため、フラグメント <> で囲みます*/}
-      <div className={styles.heroSection}>
+      
+      {/* ↓↓↓ このdivに id="home" を追加します ↓↓↓ */}
+      <div id="home" className={styles.heroSection}>
         {/* ... (ヒーローセクションの中身は変更なし) ... */}
         <h1 className={styles.title}>
           [あなたのキャッチフレーズ]

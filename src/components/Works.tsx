@@ -22,18 +22,16 @@ const dummyWorks = [
   },
 ];
 
-// 親要素(コンテナ)用のアニメーション設定
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // 子要素を0.2秒ずつずらして表示
+      staggerChildren: 0.2,
     },
   },
 };
 
-// 子要素(カード)用のアニメーション設定
 const cardVariants = {
   hidden: { y: 50, opacity: 0 },
   visible: { y: 0, opacity: 1 },
@@ -42,8 +40,8 @@ const cardVariants = {
 
 const Works = () => {
   return (
-    // セクション全体をアニメーションのトリガーにする
     <motion.section 
+      id="works" // ← この行を追加します
       className={styles.section}
       variants={containerVariants}
       initial="hidden"
@@ -53,13 +51,12 @@ const Works = () => {
       <h2 className={styles.heading}>Works</h2>
       <div className={styles.gridContainer}>
         {dummyWorks.map((work) => (
-          // 各カードにもアニメーション設定を適用
           <motion.div 
             key={work.id} 
             className={styles.card}
             variants={cardVariants}
-            whileHover={{ y: -10, scale: 1.03 }} // ホバー時のアニメーション
-            transition={{ type: "spring", stiffness: 300 }} // バネのような動き
+            whileHover={{ y: -10, scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <div className={styles.thumbnailPlaceholder} />
             <div className={styles.cardContent}>
