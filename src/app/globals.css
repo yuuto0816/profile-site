@@ -11,8 +11,15 @@ body,
 
 body {
   color: white;
-  /* 単色の黒から、深みのあるグラデ-ションに変更 */
-  background-color: #0d1117; /* グラデーションが効かないブラウザ用の背景色 */
-  background-image: radial-gradient(ellipse at top, #211d35, #0d1117 70%);
-  background-attachment: fixed; /* スクロールしてもグラデーションが動かないようにする */
+  background-color: #0d1117;
+
+  /* url()の中のパスを修正します */
+  background-image: 
+    linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 1)),
+    url('/images/background.jpg'); /* ← '/background.jpg' から '/images/background.jpg' に変更 */
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
