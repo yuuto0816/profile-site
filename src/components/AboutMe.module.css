@@ -1,0 +1,100 @@
+.section {
+  padding: 4rem 1rem; /* 上下の余白を多めに取る */
+}
+
+.container {
+  max-width: 1024px; /* コンテンツの最大幅 */
+  margin: 0 auto; /* 中央揃え */
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* 左右の要素の間隔 */
+}
+
+.imageWrapper {
+  flex-shrink: 0; /* 画像が縮まないようにする */
+}
+
+.imagePlaceholder {
+  width: 200px;
+  height: 200px;
+  background-color: #374151; /* gray-700 */
+  border-radius: 50%; /* 円形にする */
+  border: 4px solid #4b5563; /* gray-600 */
+}
+
+.textWrapper {
+  flex-grow: 1; /* 残りのスペースをすべて使う */
+}
+
+.heading {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+/* 見出しの下線のデザイン */
+.heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background-color: #a78bfa; /* violet-400 */
+}
+
+.bio {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75; /* 行間 */
+  color: #d1d5db; /* gray-300 */
+}
+
+.subHeading {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* スキル間の余白 */
+  padding: 0;
+  list-style: none;
+}
+
+.skillItem {
+  background-color: #374151; /* gray-700 */
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* 角を丸くしてカプセル状にする */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+}
+
+/* 画面が狭い場合（スマホなど）のスタイル */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* 縦並びにする */
+    gap: 2rem;
+  }
+
+  .imagePlaceholder {
+    width: 150px;
+    height: 150px;
+  }
+
+  .textWrapper {
+    text-align: center;
+  }
+
+  .heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .skillsList {
+    justify-content: center;
+  }
+}
