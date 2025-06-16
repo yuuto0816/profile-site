@@ -1,3 +1,14 @@
+/* 全ての要素に適用する、モダンなCSSリセット */
+html,
+body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   color: white;
   /* 単色の黒から、深みのあるグラデ-ションに変更 */

@@ -1,10 +1,13 @@
+/* =================================== */
+/* Header 全体のスタイル                 */
+/* =================================== */
 .header {
   width: 100%;
   padding: 1rem 2rem;
-  background-color: rgba(13, 17, 23, 0.5); /* 背景のグラデーションが少し透けるように半透明にする */
-  backdrop-filter: blur(10px); /* すりガラス効果 */
+  background-color: rgba(13, 17, 23, 0.8); /* 背景を少し濃く */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: sticky; /* スクロールしても画面上部に固定する */
+  position: sticky;
   top: 0;
   z-index: 50;
 }
@@ -15,53 +18,155 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* ドロップダウンメニューの基準位置にする */
 }
 
 .logo a {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   font-weight: 700;
   color: white;
   text-decoration: none;
 }
 
-.nav ul {
+/* =================================== */
+/* PC用ナビゲーションのスタイル          */
+/* =================================== */
+.pcNav ul {
   display: flex;
-  gap: 2rem; /* リンク間の余白 */
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.nav a {
-  font-size: 1rem; /* 16px */
+.pcNav a {
+  font-size: 1rem;
   font-weight: 500;
-  color: #9ca3af; /* gray-400 */
+  color: #9ca3af;
   text-decoration: none;
   position: relative;
   padding-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
-/* ホバーエフェクト */
-.nav a:hover {
+.pcNav a:hover {
   color: white;
 }
 
-/* ホバー時に下線がアニメーションで表示される */
-.nav a::after {
+.pcNav a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #a78bfa; /* violet-400 */
+  background-color: #a78bfa;
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease;
 }
 
-.nav a:hover::after {
+.pcNav a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+
+/* =================================== */
+/* ハンバーガーメニュー関連 (新デザイン) */
+/* =================================== */
+
+/* ハンバーガーアイコンのボタン */
+.hamburgerButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 60;
+}
+
+.hamburgerButton span {
+  width: 2rem;
+  height: 0.25rem;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  transform-origin: center;
+}
+
+/* モバイル用ドロップダウンメニュー */
+.mobileMenu {
+  position: absolute;
+  top: 150%; /* ヘッダーのすぐ下から開始 */
+  right: 0;
+  width: 200px;
+  background-color: #1f2937;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  /* 初期状態（非表示） */
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.mobileMenu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileMenu nav a {
+  display: block;
+  text-decoration: none;
+  color: #d1d5db;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mobileMenu nav a:hover {
+  background-color: #374151;
+  color: white;
+}
+
+
+/* --- 開いたとき（.openクラスが付いた時）のスタイル --- */
+.mobileMenu.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.hamburgerButton.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburgerButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerButton.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* =================================== */
+/* レスポンシブ設定 (画面が狭いとき)      */
+/* =================================== */
+@media (max-width: 768px) {
+  .pcNav {
+    display: none;
+  }
+
+  .hamburgerButton {
+    display: flex;
+  }
 }
