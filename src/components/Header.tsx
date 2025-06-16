@@ -1,19 +1,21 @@
 import Link from 'next/link';
+import styles from './Header.module.css'; // 作成したCSSファイルをインポート
 
 const Header = () => {
-  // HeaderのCSSはまだ適用していないので、一旦classNameは空にします
   return (
-    <header>
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <Link href="/" className="text-xl font-bold">
-          My Portfolio
-        </Link>
-        <nav>
-          <ul className="flex space-x-4">
-            <li><Link href="/" className="hover:text-gray-400">Home</Link></li>
-            <li><Link href="/works" className="hover:text-gray-400">Works</Link></li>
-            {/* <li><Link href="/blog" className="hover:text-gray-400">Blog</Link></li> */}
-            <li><Link href="/contact" className="hover:text-gray-400">Contact</Link></li>
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Link href="/">
+            My Portfolio
+          </Link>
+        </div>
+        <nav className={styles.nav}>
+          <ul>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/works">Works</Link></li>
+            {/* <li><Link href="/blog">Blog</Link></li> */}
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </nav>
       </div>
