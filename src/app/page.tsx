@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import styles from './page.module.css';
-import AboutMe from '@/components/AboutMe'; // ← この行を追加
+import AboutMe from '@/components/AboutMe'; 
+import Works from '@/components/Works'; 
 
 const HomePage = () => {
   return (
@@ -29,7 +30,9 @@ const HomePage = () => {
         </div>
       </div>
       
-      <AboutMe /> {/* ← この行を追加 */}
+      <AboutMe /> 
+
+      <Works />
 
     </>
   );
