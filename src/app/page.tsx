@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import styles from './page.module.css';
 import AboutMe from '@/components/AboutMe'; 
-import Works from '@/components/Works'; 
+import Works from '@/components/Works/'; 
 
 const HomePage = () => {
   return (
