@@ -8,7 +8,7 @@ const AboutMe = () => {
 
   return (
     <motion.section 
-      id="about" // ← この行を追加します
+      id="about"
       className={styles.section}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -24,9 +24,8 @@ const AboutMe = () => {
         <div className={styles.textWrapper}>
           <h2 className={styles.heading}>About Me</h2>
           <p className={styles.bio}>
-            ここにあなたの自己紹介文を入れます。これまでの学習経験や、
-            どのようなエンジニアになりたいか、あなたの強みなどをアピールしましょう。
-            文章は後でいつでも修正できます。
+            京都のIT専門学校で高度専門士を目指しながら、スタートアップでの実務や仲間と立ち上げた開発チーム「Axcira」で活動し、日々技術研鑽に励んでいます！<br />
+            現在はTypeScript、Python、Goを中心に、フロントエンドからAIまで幅広く対応できるフルスタックなエンジニアを目指して勉強中です。
           </p>
           <h3 className={styles.subHeading}>Skills</h3>
           <ul className={styles.skillsList}>
